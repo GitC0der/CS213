@@ -83,4 +83,9 @@ crashlytics-build.properties
 
 # Built Visual Studio Code Extensions
 *.vsix
+
+# Visual Studio Configuration File
 .vsconfig
+
+# Mac OS System File
+.DS_Store
