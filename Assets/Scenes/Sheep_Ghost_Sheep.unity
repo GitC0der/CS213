@@ -2707,6 +2707,7 @@ GameObject:
   - component: {fileID: 1130023286}
   - component: {fileID: 1130023288}
   - component: {fileID: 1130023287}
+  - component: {fileID: 1130023289}
   m_Layer: 5
   m_Name: Ghost
   m_TagString: Untagged
@@ -2771,6 +2772,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1130023285}
   m_CullTransparentMesh: 1
+--- !u!95 &1130023289
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1130023285}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ad7e04beec6c94949a52edb532f2f29c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1144165944
 GameObject:
   m_ObjectHideFlags: 0
