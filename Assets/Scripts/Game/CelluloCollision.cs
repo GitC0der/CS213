@@ -22,7 +22,7 @@ public class CelluloCollision : MonoBehaviour
     {
         print("Detected collider trigger between " + gameObject.name + " and " + other.name + " !");
         print(gameObject.name + " velocity is " + gameObject.GetComponent<Rigidbody>().velocity.magnitude + " !");
-        if (other.name == "Star")
+        if (other.tag == "Vibrate")
         {
             print("Vibrate!");
             gameObject.GetComponent<CelluloAgent>().SetSimpleVibrate(1f, 1f, 1f, 50, 0);
@@ -32,7 +32,7 @@ public class CelluloCollision : MonoBehaviour
     {
         if (other.tag != "Ground")
         {
-            if (other.name == "Square")
+            if (other.tag == "LedCycle")
             {
                 interval += Time.deltaTime;
                 if (interval >= 1)
