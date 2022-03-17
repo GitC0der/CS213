@@ -1,7 +1,7 @@
 ﻿using System.Linq;
 using UnityEngine;
 
-public class SheepBehavior : AgentBehaviour
+public class GhostSheepBehavior : AgentBehaviour
 {    
     public void Start(){
     }
