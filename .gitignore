@@ -89,3 +89,8 @@ crashlytics-build.properties
 
 # Mac OS System File
 .DS_Store
+
+# Celulo Plugins
+/[Aa]ssets/Plugins/windows*
+/[Aa]ssets/Plugins/macOS*
+/[Aa]ssets/Plugins/linux*
