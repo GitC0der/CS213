@@ -6899,7 +6899,7 @@ GameObject:
   - component: {fileID: 723121067}
   m_Layer: 0
   m_Name: Square
-  m_TagString: Untagged
+  m_TagString: LedCycle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7835,7 +7835,7 @@ GameObject:
   - component: {fileID: 835419969}
   m_Layer: 0
   m_Name: Star
-  m_TagString: Untagged
+  m_TagString: Vibrate
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
