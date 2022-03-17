@@ -250,6 +250,7 @@ public class CelluloAgent : SteeringAgent
     /// A value possibly meaningful for the effect (between 0 and 255)
     /// </param>
     public void SetVisualEffect(VisualEffect effect, Color color, int value){
+        if (color == Color.clear) color = initialColor;
         switch(effect){
             case VisualEffect.VisualEffectConstSingle:
                 _leds.transform.GetChild(value%6).gameObject.GetComponent<Renderer>().materials[0].color = color;
