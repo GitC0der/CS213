@@ -19,13 +19,15 @@ public class GhostSheepBehavior : AgentBehaviour
         {
             playerPositionsSum += p.transform.position;
         }
-        Vector3 destination;
-        destination.x = playerPositionsSum.x / players.Length;
-        destination.y = playerPositionsSum.y / players.Length;
-        destination.z = playerPositionsSum.z / players.Length;
+        Vector3 avoidPosition;
+        avoidPosition.x = playerPositionsSum.x / players.Length;
+        avoidPosition.y = playerPositionsSum.y / players.Length;
+        avoidPosition.z = playerPositionsSum.z / players.Length;
+
+        // Position currently NOT avoided but sought after!
 
         float maxDistanceDelta = 0.5f;
-        Vector3 dst = Vector3.MoveTowards(this.transform.position, destination, maxDistanceDelta);
+        Vector3 dst = Vector3.MoveTowards(this.transform.position, avoidPosition, maxDistanceDelta);
 
         steering.linear = dst;
         steering.linear = this.transform.parent.TransformDirection(Vector3.ClampMagnitude(steering.
