@@ -2,40 +2,79 @@
 using UnityEngine;
 
 public class GhostSheepBehavior : AgentBehaviour
-{    
+{
+    [SerializeField]
+    private bool isSheep = true;
+    [SerializeField]
+    private Color sheepColor = Color.white;
+    [SerializeField]
+    private Color ghostColor = Color.red;
+
+    float repeatRate = 0f;
+
+    public void Awake()
+    {
+        base.Awake();
+        isSheep = true;
+    }
+
     public void Start() {
         this.gameObject.tag = "Sheep";
+        setLightning();
+        repeatRate = Random.Range(5f, 10f);
+        Invoke("SwitchState", repeatRate);
     }
 
     public override Steering GetSteering()
     {
-        
+        Vector3 playerPositionsSum = Vector3.zero;
+        Vector3 avoidPosition = Vector3.zero;
+        Vector3 targetPosition = Vector3.zero;
+
         Steering steering = new Steering();
         //implement your code here.
         GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
+        GameObject closestPlayer = FindClosestPlayer(players);
 
-        Vector3 playerPositionsSum = new Vector3(0,0,0);
-        foreach(GameObject p in players)
+        playerPositionsSum += closestPlayer.transform.position;
+
+        foreach (GameObject p in players)
         {
             playerPositionsSum += p.transform.position;
         }
-        Vector3 avoidPosition;
-        avoidPosition.x = playerPositionsSum.x / players.Length;
-        avoidPosition.y = playerPositionsSum.y / players.Length;
-        avoidPosition.z = playerPositionsSum.z / players.Length;
 
-        // Position currently NOT avoided but sought after!
+        // Computes the centroid of the position of every player, closest player taken twice into account
+        avoidPosition = playerPositionsSum/(players.Length+1);
 
-        float maxDistanceDelta = 0.5f;
-        Vector3 dst = Vector3.MoveTowards(this.transform.position, avoidPosition, maxDistanceDelta);
+        // Sets the target position to move to according to the state of the sheep/ghost bot
+        targetPosition = isSheep ? -((avoidPosition-transform.position).normalized) : closestPlayer.transform.position-transform.position;
 
-        steering.linear = dst;
-        steering.linear = this.transform.parent.TransformDirection(Vector3.ClampMagnitude(steering.
-            linear, agent.maxAccel));
+        //GameObject.Find("test").transform.position = new Vector3(targetPosition.x * agent.maxSpeed + transform.position.x, 1, targetPosition.z * agent.maxSpeed + transform.position.z);
+
+        steering.linear = this.transform.parent.TransformDirection(Vector3.ClampMagnitude(new Vector3(targetPosition.x, 0, targetPosition.z) * agent.maxAccel, agent.maxAccel));
 
         return steering;
     }
 
+    private void SwitchState()
+    {
+        isSheep = !isSheep;
+        setLightning();
+        Invoke("SwitchState", repeatRate = Random.Range(2f, 5f));
+    }
 
+    private void setLightning()
+    {
+        agent.SetVisualEffect(VisualEffect.VisualEffectConstAll, isSheep?sheepColor:ghostColor, 0);
+    }
 
+    private GameObject FindClosestPlayer(GameObject[] players)
+    {
+        GameObject g = players.FirstOrDefault();
+        foreach (GameObject p in players.Skip(1))
+        {
+            g = (p.transform.position - transform.position).magnitude < (g.transform.position - transform.position).magnitude ? p : g;
+        }
+        return g;
+    }
 }
