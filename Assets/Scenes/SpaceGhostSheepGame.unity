@@ -484,6 +484,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weight: 1
   inputKeyboard: 1
+--- !u!114 &656393649
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 656393647}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 224e3a0522a6a4001b0d90728302bf49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &764414272
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -645,6 +657,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weight: 1
+  isSheep: 1
+  sheepColor: {r: 1, g: 1, b: 1, a: 1}
+  ghostColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!1001 &1147121922
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1195,6 +1210,18 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4052793752220753789, guid: 6f5f6d7624c2ce5cc8896e584e30f1c5, type: 3}
   m_PrefabInstance: {fileID: 1657123909}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1708979270
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1708979269}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 224e3a0522a6a4001b0d90728302bf49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1708979271
 MonoBehaviour:
   m_ObjectHideFlags: 0
