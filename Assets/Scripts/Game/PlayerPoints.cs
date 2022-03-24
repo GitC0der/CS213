@@ -31,7 +31,7 @@ public class PlayerPoints : MonoBehaviour
     // event handler
     public static void rt_GivePoints()
     {
-        incrementPoints();
+        //incrementPoints();
     }
 
     // Start is called before the first frame update
