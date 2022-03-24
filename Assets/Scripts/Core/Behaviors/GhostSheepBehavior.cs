@@ -6,7 +6,7 @@ public class GhostSheepBehavior : AgentBehaviour
     [SerializeField]
     private bool isSheep = true;
     [SerializeField]
-    private Color sheepColor = Color.white;
+    private Color sheepColor = Color.green;
     [SerializeField]
     private Color ghostColor = Color.red;
 
@@ -55,14 +55,10 @@ public class GhostSheepBehavior : AgentBehaviour
         avoidPosition = playerPositionsSum/(players.Length+1);
 
         // Sets the target position to move to according to the state of the sheep/ghost bot
-        targetPosition = isSheep ? -((avoidPosition-transform.position).normalized) : closestPlayer.transform.position-transform.position;
+        targetPosition = isSheep ? - ((avoidPosition-transform.position).normalized) : closestPlayer.transform.position-transform.position;
 
         //GameObject.Find("test").transform.position = new Vector3(targetPosition.x * agent.maxSpeed + transform.position.x, 1, targetPosition.z * agent.maxSpeed + transform.position.z);
 
-        // if (playerPositionsSum == Vector3.zero) {
-        //     GameObject[] sheep = GameObject.FindGameObjectsWithTag("Sheep");
-        //     steering.linear = sheep[0].transform.position;
-        // } else
         if (isPlayerinRange || !isSheep) {
             steering.linear = this.transform.parent.TransformDirection(Vector3.ClampMagnitude(new Vector3(targetPosition.x, 0, targetPosition.z) * agent.maxAccel, agent.maxAccel));
         }
@@ -79,7 +75,8 @@ public class GhostSheepBehavior : AgentBehaviour
 
     private void setLightning()
     {
-        agent.SetVisualEffect(VisualEffect.VisualEffectConstAll, isSheep?sheepColor:ghostColor, 0);
+        Color color = isSheep? Color.green : ghostColor;
+        agent.SetVisualEffect(VisualEffect.VisualEffectConstAll, color, 0);
     }
 
     private GameObject FindClosestPlayer(GameObject[] players)
