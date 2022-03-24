@@ -11,6 +11,7 @@ public class GhostSheepBehavior : AgentBehaviour
     private Color ghostColor = Color.red;
 
     float repeatRate = 0f;
+    float fleeDistance = 5f;
 
     public void Awake()
     {
@@ -37,10 +38,17 @@ public class GhostSheepBehavior : AgentBehaviour
         GameObject closestPlayer = FindClosestPlayer(players);
 
         playerPositionsSum += closestPlayer.transform.position;
+        bool isPlayerinRange = false;
 
         foreach (GameObject p in players)
         {
-            playerPositionsSum += p.transform.position;
+            GameObject[] sheep = GameObject.FindGameObjectsWithTag("Sheep");
+            var heading = p.transform.position - sheep[0].transform.position;
+            var distance = heading.magnitude;
+            if (distance < fleeDistance) {
+                playerPositionsSum += p.transform.position;
+                isPlayerinRange = true;
+            }
         }
 
         // Computes the centroid of the position of every player, closest player taken twice into account
@@ -51,7 +59,13 @@ public class GhostSheepBehavior : AgentBehaviour
 
         //GameObject.Find("test").transform.position = new Vector3(targetPosition.x * agent.maxSpeed + transform.position.x, 1, targetPosition.z * agent.maxSpeed + transform.position.z);
 
-        steering.linear = this.transform.parent.TransformDirection(Vector3.ClampMagnitude(new Vector3(targetPosition.x, 0, targetPosition.z) * agent.maxAccel, agent.maxAccel));
+        // if (playerPositionsSum == Vector3.zero) {
+        //     GameObject[] sheep = GameObject.FindGameObjectsWithTag("Sheep");
+        //     steering.linear = sheep[0].transform.position;
+        // } else
+        if (isPlayerinRange || !isSheep) {
+            steering.linear = this.transform.parent.TransformDirection(Vector3.ClampMagnitude(new Vector3(targetPosition.x, 0, targetPosition.z) * agent.maxAccel, agent.maxAccel));
+        }
 
         return steering;
     }
@@ -78,3 +92,4 @@ public class GhostSheepBehavior : AgentBehaviour
         return g;
     }
 }
+
