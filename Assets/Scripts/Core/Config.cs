@@ -10,7 +10,7 @@ public static class Config
     public static int controlPanelSelectedCellulo = 0; 
 
     // Scanner
-    public const float REFRESH_TIMER = 3f; // seconds after which it will stop and start scanning to refresh
+    public const float REFRESH_TIMER = 1f; // seconds after which it will stop and start scanning to refresh
 
     ///////////////////
     //// CONSTANTS ////
