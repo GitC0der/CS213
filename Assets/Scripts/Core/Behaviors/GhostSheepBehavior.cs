@@ -43,8 +43,8 @@ public class GhostSheepBehavior : AgentBehaviour
         foreach (GameObject p in players)
         {
             GameObject[] sheep = GameObject.FindGameObjectsWithTag("Sheep");
-            var heading = p.transform.position - sheep[0].transform.position;
-            var distance = heading.magnitude;
+            Vector3 heading = p.transform.position - sheep[0].transform.position;
+            float distance = heading.magnitude;
             if (distance < fleeDistance) {
                 playerPositionsSum += p.transform.position;
                 isPlayerinRange = true;
