@@ -22,11 +22,14 @@ public class RingTrigger : MonoBehaviour
     }
     void OnTriggerEnter(Collider other){
         Debug.Log(other.transform.parent.gameObject.name + " triggers.");
-        if (other.CompareTag("Sheep")) {
+        if (other.gameObject.CompareTag("Sheep")) {
             GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
             GameObject closestPlayer = FindClosestPlayer(players);
-            OnGivePoints();
+            // OnGivePoints();
+            closestPlayer.GetComponent<PlayerPoints>().incrementPoints();
             // closestPlayer.incrementPoints;
+
+            Debug.Log("Player " + closestPlayer.transform.parent.gameObject.name + " has points: " + closestPlayer.GetComponent<PlayerPoints>().getPoints().ToString());
         }
     }
 

@@ -21,6 +21,7 @@ public class GhostSheepBehavior : AgentBehaviour
 
     public void Start() {
         this.gameObject.tag = "Sheep";
+        this.tag = "Sheep";
         setLightning();
         repeatRate = Random.Range(5f, 10f);
         Invoke("SwitchState", repeatRate);
@@ -87,6 +88,10 @@ public class GhostSheepBehavior : AgentBehaviour
             g = (p.transform.position - transform.position).magnitude < (g.transform.position - transform.position).magnitude ? p : g;
         }
         return g;
+    }
+
+    public bool GetIsSheep() {
+        return isSheep;
     }
 }
 
