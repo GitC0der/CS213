@@ -21,32 +21,14 @@ public class RingTrigger : MonoBehaviour
         
     }
     void OnTriggerEnter(Collider other){
-        Debug.Log(other.transform.parent.gameObject.name + " triggers.");
-        if (other.gameObject.CompareTag("Sheep")) {
-            GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
-            GameObject closestPlayer = FindClosestPlayer(players);
-            // OnGivePoints();
-            closestPlayer.GetComponent<PlayerPoints>().incrementPoints();
-            // closestPlayer.incrementPoints;
+        if (other.GetComponentInParent<Transform>().parent.CompareTag("Sheep")) {
 
-            Debug.Log("Player " + closestPlayer.transform.parent.gameObject.name + " has points: " + closestPlayer.GetComponent<PlayerPoints>().getPoints().ToString());
+            Players.Player cp = GameManager.Instance.Players.GetClosestPlayer(other.transform);
+
+            if (other.GetComponentInParent<GhostSheepBehavior>().GetIsSheep())
+                cp.AddScore();
+
+            Debug.Log("Player: " + cp.gameObject.name + " with name: " + cp.name + " has points: " + GameManager.Instance.Players.GetClosestPlayer(other.transform).Score);
         }
-    }
-
-    protected virtual void OnGivePoints()
-    {
-        //if ProcessCompleted is not null then call delegate
-        GivePoints?.Invoke(); 
-    }
-
-
-    private GameObject FindClosestPlayer(GameObject[] players)
-    {
-        GameObject g = players.FirstOrDefault();
-        foreach (GameObject p in players.Skip(1))
-        {
-            g = (p.transform.position - transform.position).magnitude < (g.transform.position - transform.position).magnitude ? p : g;
-        }
-        return g;
     }
 }

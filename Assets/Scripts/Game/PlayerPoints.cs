@@ -4,40 +4,15 @@ using UnityEngine;
 
 public class PlayerPoints : MonoBehaviour
 {
-    private int points = 0;
-
-    public void incrementPoints()
+    void Awake()
     {
-        ++points;
-    }
-
-    public void decrementPoints()
-    {
-        --points;
-    }
-
-    public int getPoints()
-    {
-        return points;
-    }
-
-    // public static void Main()
-    // {
-    //     RingTrigger rt = new RingTrigger();
-    //     rt.GivePoints += rt_GivePoints; // register with an event
-    //     rt.OnTriggerEnter();
-    // }
-
-    // event handler
-    public static void rt_GivePoints()
-    {
-        //incrementPoints();
+        
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        try { GameManager.Instance.Players.AddPlayer(gameObject); } catch { Debug.Log("Error adding player"); }
     }
 
     // Update is called once per frame

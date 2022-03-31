@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using UnityEngine;
+using System.Collections.Generic;
 
 public class GhostSheepBehavior : AgentBehaviour
 {
@@ -9,6 +10,8 @@ public class GhostSheepBehavior : AgentBehaviour
     private Color sheepColor = Color.green;
     [SerializeField]
     private Color ghostColor = Color.red;
+
+    GameObject Sheep;
 
     float repeatRate = 0f;
     float fleeDistance = 5f;
@@ -20,7 +23,7 @@ public class GhostSheepBehavior : AgentBehaviour
     }
 
     public void Start() {
-        this.gameObject.tag = "Sheep";
+        Sheep = GameObject.FindGameObjectWithTag("Sheep");
         this.tag = "Sheep";
         setLightning();
         repeatRate = Random.Range(5f, 10f);
@@ -35,30 +38,28 @@ public class GhostSheepBehavior : AgentBehaviour
 
         Steering steering = new Steering();
         //implement your code here.
-        GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
-        GameObject closestPlayer = FindClosestPlayer(players);
 
-        playerPositionsSum += closestPlayer.transform.position;
+        List<Players.Player> players = GameManager.Instance.Players.players;
+        GameObject closestPlayer = GameManager.Instance.Players.GetClosestPlayer(transform).gameObject;
+
+        playerPositionsSum = (closestPlayer.transform.position - Sheep.transform.position).magnitude<fleeDistance? closestPlayer.transform.position + playerPositionsSum : Vector3.zero + playerPositionsSum;
         bool isPlayerinRange = false;
 
-        foreach (GameObject p in players)
+        foreach (Players.Player p in players)
         {
-            GameObject[] sheep = GameObject.FindGameObjectsWithTag("Sheep");
-            Vector3 heading = p.transform.position - sheep[0].transform.position;
+            Vector3 heading = p.gameObject.transform.position - Sheep.transform.position;
             float distance = heading.magnitude;
             if (distance < fleeDistance) {
-                playerPositionsSum += p.transform.position;
+                playerPositionsSum += p.gameObject.transform.position;
                 isPlayerinRange = true;
             }
         }
 
         // Computes the centroid of the position of every player, closest player taken twice into account
-        avoidPosition = playerPositionsSum/(players.Length+1);
+        avoidPosition = playerPositionsSum/(players.Count+1);
 
         // Sets the target position to move to according to the state of the sheep/ghost bot
         targetPosition = isSheep ? - ((avoidPosition-transform.position).normalized) : closestPlayer.transform.position-transform.position;
-
-        //GameObject.Find("test").transform.position = new Vector3(targetPosition.x * agent.maxSpeed + transform.position.x, 1, targetPosition.z * agent.maxSpeed + transform.position.z);
 
         if (isPlayerinRange || !isSheep) {
             steering.linear = this.transform.parent.TransformDirection(Vector3.ClampMagnitude(new Vector3(targetPosition.x, 0, targetPosition.z) * agent.maxAccel, agent.maxAccel));
@@ -76,18 +77,8 @@ public class GhostSheepBehavior : AgentBehaviour
 
     private void setLightning()
     {
-        Color color = isSheep? Color.green : ghostColor;
+        Color color = isSheep? sheepColor : ghostColor;
         agent.SetVisualEffect(VisualEffect.VisualEffectConstAll, color, 0);
-    }
-
-    private GameObject FindClosestPlayer(GameObject[] players)
-    {
-        GameObject g = players.FirstOrDefault();
-        foreach (GameObject p in players.Skip(1))
-        {
-            g = (p.transform.position - transform.position).magnitude < (g.transform.position - transform.position).magnitude ? p : g;
-        }
-        return g;
     }
 
     public bool GetIsSheep() {
