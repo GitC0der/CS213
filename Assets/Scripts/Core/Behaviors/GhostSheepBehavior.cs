@@ -13,7 +13,9 @@ public class GhostSheepBehavior : AgentBehaviour
 
     GameObject Sheep;
 
+    public AudioSource[] sounds;
     public AudioClip wolf;
+    public AudioClip bah;
 
     float repeatRate = 0f;
     float fleeDistance = 5f;
@@ -30,8 +32,11 @@ public class GhostSheepBehavior : AgentBehaviour
         setLightning();
         repeatRate = Random.Range(5f, 10f);
         Invoke("SwitchState", repeatRate);
-        GetComponent<AudioSource>().playOnAwake = false;
-        GetComponent<AudioSource>().clip = wolf;
+        sounds = GetComponents<AudioSource>();
+        sounds[0].playOnAwake = false;
+        sounds[0].clip = wolf;
+        sounds[1].playOnAwake = false;
+        sounds[1].clip = bah;
     }
 
     public override Steering GetSteering()
@@ -74,7 +79,8 @@ public class GhostSheepBehavior : AgentBehaviour
 
     private void SwitchState()
     {
-        if (isSheep) GetComponent<AudioSource>().Play();
+        if (isSheep) sounds[0].Play();
+        else sounds[1].Play();
         isSheep = !isSheep;
         setLightning();
         Invoke("SwitchState", repeatRate = Random.Range(2f, 5f));

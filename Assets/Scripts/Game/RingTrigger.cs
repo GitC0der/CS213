@@ -29,7 +29,7 @@ public class RingTrigger : MonoBehaviour
 
             if (other.GetComponentInParent<GhostSheepBehavior>().GetIsSheep()) {
                 cp.AddScore();
-                GetComponent<AudioSource> ().Play();
+                GetComponent<AudioSource>().Play();
             }
             Debug.Log("Player: " + cp.gameObject.name + " with name: " + cp.name + " has points: " + GameManager.Instance.Players.GetClosestPlayer(other.transform).Score); 
         }
