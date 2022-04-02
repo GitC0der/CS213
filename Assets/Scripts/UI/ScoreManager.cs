@@ -7,8 +7,10 @@ public class ScoreManager : MonoBehaviour
 {
     public static ScoreManager instance;
 
-    public Text scoreText;
-    int score = 0;
+    public Text scoreTextPlayer1;
+    public Text scoreTextPlayer2;
+    int scorePlayer1 = 0;
+    int scorePlayer2 = 0;
 
     private void Awake() {
         instance = this;
@@ -17,13 +19,16 @@ public class ScoreManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        scoreText.text = score.ToString() + " Points";
+        scoreTextPlayer1.text = scorePlayer1.ToString() + " Points";
+        scoreTextPlayer2.text = scorePlayer2.ToString() + " Points";
     }
 
     // Update is called once per frame
     public void AddPoint()
     {
-        score += 1;
-        scoreText.text = score.ToString() + " Points";
+        scorePlayer1 += 1;
+        scorePlayer2 += 1;
+        scoreTextPlayer1.text = scorePlayer1.ToString() + " Points";
+        scoreTextPlayer2.text = scorePlayer2.ToString() + " Points";
     }
 }

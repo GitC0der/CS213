@@ -2363,4 +2363,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79b32c3ff322643608af020c4cc59e8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoreText: {fileID: 1608317149}
+  scoreTextPlayer1: {fileID: 1608317149}
+  scoreTextPlayer2: {fileID: 1305635041}
