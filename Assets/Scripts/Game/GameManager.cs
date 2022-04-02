@@ -95,15 +95,29 @@ public class Players : MonoBehaviour {
         }
         public void AddScore()
         {
-            AddScore(1);
-
-            // Update the displayed score
-            ScoreManager.instance.AddPoint(name);
+            AddScore(1);   
         }
         public void AddScore(int n)
         {
             Score += n;
             Debug.Log("Added " + n + " points to " + _name +", total score is: " + Score);
+
+            // Update the displayed score
+            for (int i = 0; i < n; ++i) ScoreManager.instance.AddPoint(name);
+        }
+
+        public void RemoveScore()
+        {
+            RemoveScore(1);       
+        }
+
+         public void RemoveScore(int n)
+        {
+            Score -= n;
+            Debug.Log("Removed " + n + " points from " + _name +", total score is: " + Score);
+
+            // Update the displayed score
+            for (int i = 0; i < n; ++i) ScoreManager.instance.RemovePoint(name);
         }
 
         public Player():this(new GameObject()){}

@@ -24,7 +24,6 @@ public class RingTrigger : MonoBehaviour
 
     void OnTriggerEnter(Collider other){
         if (other.GetComponentInParent<Transform>().parent.CompareTag("Sheep")) {
-
             Players.Player cp = GameManager.Instance.Players.GetClosestPlayer(other.transform);
 
             if (other.GetComponentInParent<GhostSheepBehavior>().GetIsSheep()) {

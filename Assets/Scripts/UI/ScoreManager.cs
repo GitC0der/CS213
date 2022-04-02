@@ -34,4 +34,15 @@ public class ScoreManager : MonoBehaviour
             scoreTextPlayer2.text = "P2: " + scorePlayer2.ToString() + " Points";
         }
     }
+
+    public void RemovePoint(string name)
+    {
+        if (name.Equals("Player 1")) {
+            scorePlayer1 -= 1;
+            scoreTextPlayer1.text = "P1: " + scorePlayer1.ToString() + " Points";
+        } else if (name.Equals("Player 2")) {
+            scorePlayer2 -= 1;
+            scoreTextPlayer2.text = "P2: " + scorePlayer2.ToString() + " Points";
+        }
+    }
 }
