@@ -29,6 +29,9 @@ public class RingTrigger : MonoBehaviour
                 cp.AddScore();
 
             Debug.Log("Player: " + cp.gameObject.name + " with name: " + cp.name + " has points: " + GameManager.Instance.Players.GetClosestPlayer(other.transform).Score);
+
+            // Update the displayed score
+            ScoreManager.instance.AddPoint();
         }
     }
 }
