@@ -24,8 +24,12 @@ public class Timer : MonoBehaviour
 
     // Update is called once per frame
     public void Update() {
+        float t = Time.time - initTimerValue;
 
-        //IMPLEEMT YOUR CODE HERE
+        string minutes = ((int) t / 60).ToString();
+        string seconds = (t % 60).ToString("f0");
+
+        timerText.text = minutes + ":" + seconds;
         
     }
 }
