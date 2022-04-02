@@ -7,7 +7,7 @@ public delegate void Notify();
 
 public class RingTrigger : MonoBehaviour
 {
-    public event Notify GivePoints;
+    // public event Notify GivePoints;
 
     // Start is called before the first frame update
     void Start()
@@ -27,9 +27,6 @@ public class RingTrigger : MonoBehaviour
 
             if (other.GetComponentInParent<GhostSheepBehavior>().GetIsSheep()) {
                 cp.AddScore();
-
-                // Update the displayed score
-                ScoreManager.instance.AddPoint();
             }
                 
             Debug.Log("Player: " + cp.gameObject.name + " with name: " + cp.name + " has points: " + GameManager.Instance.Players.GetClosestPlayer(other.transform).Score); 

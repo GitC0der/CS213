@@ -19,16 +19,19 @@ public class ScoreManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        scoreTextPlayer1.text = scorePlayer1.ToString() + " Points";
-        scoreTextPlayer2.text = scorePlayer2.ToString() + " Points";
+        scoreTextPlayer1.text = "P1: " + scorePlayer1.ToString() + " Points";
+        scoreTextPlayer2.text = "P2: " + scorePlayer2.ToString() + " Points";
     }
 
     // Update is called once per frame
-    public void AddPoint()
+    public void AddPoint(string name)
     {
-        scorePlayer1 += 1;
-        scorePlayer2 += 1;
-        scoreTextPlayer1.text = scorePlayer1.ToString() + " Points";
-        scoreTextPlayer2.text = scorePlayer2.ToString() + " Points";
+        if (name.Equals("Player 1")) {
+            scorePlayer1 += 1;
+            scoreTextPlayer1.text = "P1: " + scorePlayer1.ToString() + " Points";
+        } else if (name.Equals("Player 2")) {
+            scorePlayer2 += 1;
+            scoreTextPlayer2.text = "P2: " + scorePlayer2.ToString() + " Points";
+        }
     }
 }

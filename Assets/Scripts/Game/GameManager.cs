@@ -96,6 +96,9 @@ public class Players : MonoBehaviour {
         public void AddScore()
         {
             AddScore(1);
+
+            // Update the displayed score
+            ScoreManager.instance.AddPoint(name);
         }
         public void AddScore(int n)
         {
