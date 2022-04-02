@@ -7,12 +7,13 @@ public delegate void Notify();
 
 public class RingTrigger : MonoBehaviour
 {
-    // public event Notify GivePoints;
+    public AudioClip winPoint;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        GetComponent<AudioSource>().playOnAwake = false;
+        GetComponent<AudioSource>().clip = winPoint;
     }
 
     // Update is called once per frame
@@ -20,6 +21,7 @@ public class RingTrigger : MonoBehaviour
     {
         
     }
+
     void OnTriggerEnter(Collider other){
         if (other.GetComponentInParent<Transform>().parent.CompareTag("Sheep")) {
 
@@ -27,8 +29,8 @@ public class RingTrigger : MonoBehaviour
 
             if (other.GetComponentInParent<GhostSheepBehavior>().GetIsSheep()) {
                 cp.AddScore();
+                GetComponent<AudioSource> ().Play();
             }
-                
             Debug.Log("Player: " + cp.gameObject.name + " with name: " + cp.name + " has points: " + GameManager.Instance.Players.GetClosestPlayer(other.transform).Score); 
         }
     }
