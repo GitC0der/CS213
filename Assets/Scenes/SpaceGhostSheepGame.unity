@@ -1643,7 +1643,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weight: 1
   isSheep: 1
-  sheepColor: {r: 1, g: 1, b: 1, a: 1}
+  sheepColor: {r: 0, g: 1, b: 0, a: 1}
   ghostColor: {r: 1, g: 0, b: 0, a: 1}
   sounds: []
   wolf: {fileID: 8300000, guid: 38694c16ea2afe33da8620b6cad520af, type: 3}
