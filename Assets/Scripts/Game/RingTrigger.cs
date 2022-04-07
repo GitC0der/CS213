@@ -26,10 +26,8 @@ public class RingTrigger : MonoBehaviour
         if (other.GetComponentInParent<Transform>().parent.CompareTag("Sheep")) {
             Players.Player cp = GameManager.Instance.Players.GetClosestPlayer(other.transform);
 
-            if (other.GetComponentInParent<GhostSheepBehavior>().GetIsSheep()) {
-                cp.AddScore();
-                GetComponent<AudioSource>().Play();
-            }
+            cp.AddScore();
+            GetComponent<AudioSource>().Play();
             Debug.Log("Player: " + cp.gameObject.name + " with name: " + cp.name + " has points: " + GameManager.Instance.Players.GetClosestPlayer(other.transform).Score); 
         }
     }
