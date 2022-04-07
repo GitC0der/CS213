@@ -11,11 +11,7 @@ public class GhostCollision : MonoBehaviour
         Debug.Log("Collision occured");
         Debug.Log("other.collider.transform.parent.gameObject: " + other.collider.transform.parent.gameObject + "   other.collider.gameObject: " + other.collider.gameObject);
 
-<<<<<<< HEAD
         if (other.collider.transform.parent.gameObject.CompareTag("Player")) {
-=======
-        if (other.collider.GetComponentInParent<Transform>().parent.CompareTag("Player")) {
->>>>>>> 4da2b54 (Ghost collission added)
 
             Debug.Log("Collision with a player");
 

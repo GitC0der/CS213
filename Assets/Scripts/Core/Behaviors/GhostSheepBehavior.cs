@@ -35,7 +35,7 @@ public class GhostSheepBehavior : AgentBehaviour
         setLightning();
         repeatRate = Random.Range(5f, 10f);
         Invoke("SwitchState", repeatRate);
-        if(sounds == null)
+        // if(sounds == null)
             sounds = GetComponents<AudioSource>();
         sounds[0].playOnAwake = false;
         sounds[0].clip = wolf;
