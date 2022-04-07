@@ -12,7 +12,7 @@ public class PlayerPoints : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        try { GameManager.Instance.Players.AddPlayer(gameObject); } catch { Debug.Log("Error adding player"); }
+        try { GameManager.Instance.Players.AddPlayer(gameObject, gameObject.name); } catch { Debug.Log("Error adding player"); }
     }
 
     // Update is called once per frame
