@@ -148,21 +148,25 @@ public class Players : MonoBehaviour {
         return 0;
     }
 
+    public int AddPlayer(GameObject player, string name)
+    {
+        _players.Add(new Player(player, 0, name));
+        Debug.Log("Added player " + name);
+        return 0;
+    }
+
     private Player GetFirstOrDefault() { return Get(0); }
     private List<Player> Skip(int n) {
         if (n >= _players.Count)
             return null;
-        
-        return _players.GetRange(n-1, _players.Count-n);
+        return _players.GetRange(n, _players.Count-n);
     }
 
     public Player GetClosestPlayer(Transform t)
     {
         Player g = GetFirstOrDefault();
         foreach (Player p in Skip(1))
-        {
             g = (p.gameObject.transform.position - t.position).magnitude < (g.gameObject.transform.position - t.position).magnitude ? p : g;
-        }
         return g;
     }
 }
