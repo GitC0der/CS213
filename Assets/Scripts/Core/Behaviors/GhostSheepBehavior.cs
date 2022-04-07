@@ -23,7 +23,7 @@ public class GhostSheepBehavior : AgentBehaviour
     float minStateDuration = 2f;
     float maxStateDuration = 6f;
 
-    public void Awake()
+    public new void Awake()
     {
         base.Awake();
         isSheep = true;
@@ -35,7 +35,8 @@ public class GhostSheepBehavior : AgentBehaviour
         setLightning();
         repeatRate = Random.Range(5f, 10f);
         Invoke("SwitchState", repeatRate);
-        sounds = GetComponents<AudioSource>();
+        if(sounds == null)
+            sounds = GetComponents<AudioSource>();
         sounds[0].playOnAwake = false;
         sounds[0].clip = wolf;
         sounds[1].playOnAwake = false;
@@ -55,7 +56,7 @@ public class GhostSheepBehavior : AgentBehaviour
         GameObject closestPlayer = GameManager.Instance.Players.GetClosestPlayer(transform).gameObject;
 
         playerPositionsSum = (closestPlayer.transform.position - Sheep.transform.position).magnitude<fleeDistance? closestPlayer.transform.position + playerPositionsSum : Vector3.zero + playerPositionsSum;
-        bool isPlayerinRange = false;
+        int playerInRange = (closestPlayer.transform.position - Sheep.transform.position).magnitude < fleeDistance ? 1 : 0;
 
         foreach (Players.Player p in players)
         {
@@ -63,17 +64,17 @@ public class GhostSheepBehavior : AgentBehaviour
             float distance = heading.magnitude;
             if (distance < fleeDistance) {
                 playerPositionsSum += p.gameObject.transform.position;
-                isPlayerinRange = true;
+                playerInRange += 1;
             }
         }
 
         // Computes the centroid of the position of every player, closest player taken twice into account
-        avoidPosition = playerPositionsSum/(players.Count+1);
+        avoidPosition = playerPositionsSum/(playerInRange);
 
         // Sets the target position to move to according to the state of the sheep/ghost bot
         targetPosition = isSheep ? - ((avoidPosition-transform.position).normalized) : closestPlayer.transform.position-transform.position;
 
-        if (isPlayerinRange || !isSheep) {
+        if (playerInRange > 0 || !isSheep) {
             steering.linear = this.transform.parent.TransformDirection(Vector3.ClampMagnitude(new Vector3(targetPosition.x, 0, targetPosition.z) * agent.maxAccel, agent.maxAccel));
         }
 
