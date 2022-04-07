@@ -20,6 +20,9 @@ public class GhostSheepBehavior : AgentBehaviour
     float repeatRate = 0f;
     float fleeDistance = 5f;
 
+    float minStateDuration = 2f;
+    float maxStateDuration = 6f;
+
     public void Awake()
     {
         base.Awake();
@@ -83,7 +86,7 @@ public class GhostSheepBehavior : AgentBehaviour
         else sounds[1].Play();
         isSheep = !isSheep;
         setLightning();
-        Invoke("SwitchState", repeatRate = Random.Range(2f, 5f));
+        Invoke("SwitchState", repeatRate = Random.Range(minStateDuration, maxStateDuration));
     }
 
     private void setLightning()

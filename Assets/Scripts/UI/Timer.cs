@@ -26,10 +26,13 @@ public class Timer : MonoBehaviour
     public void Update() {
         float t = Time.time - initTimerValue;
 
-        string minutes = ((int) t / 60).ToString();
-        string seconds = (t % 60).ToString("f0");
+        int minutesCount = (int) t / 60;
+        int secondsCount = (int)t % 60;
+        string minutesText = (minutesCount).ToString();
+        string secondsText = (secondsCount).ToString("f0");
+        if (secondsCount < 10) secondsText = "0" + secondsText;
 
-        timerText.text = minutes + ":" + seconds;
+        timerText.text = minutesText + ":" + secondsText;
         
     }
 }
