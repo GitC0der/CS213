@@ -1525,8 +1525,8 @@ MonoBehaviour:
   isSheep: 0
   sheepColor: {r: 0, g: 1, b: 0, a: 1}
   ghostColor: {r: 1, g: 0, b: 0, a: 1}
-  wolf_audioClip: {fileID: 0}
-  sheep_audioClip: {fileID: 0}
+  wolf_audioClip: {fileID: 8300000, guid: 38694c16ea2afe33da8620b6cad520af, type: 3}
+  sheep_audioClip: {fileID: 8300000, guid: 606621ca451e37dc7814bb28809e9de5, type: 3}
 --- !u!82 &997652533
 AudioSource:
   m_ObjectHideFlags: 0
