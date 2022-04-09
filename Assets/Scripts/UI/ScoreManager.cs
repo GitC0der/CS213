@@ -29,7 +29,7 @@ public class ScoreManager : MonoBehaviour
         if (name.Equals("Player CelluloAgent_1")) {
             scorePlayer1 += 1;
             scoreTextPlayer1.text = "P1: " + scorePlayer1.ToString() + " Points";
-        } else if (name.Equals("Player CelluloAgent_2")) {
+        } else /*if (name.Equals("Player CelluloAgent_2"))*/ {
             scorePlayer2 += 1;
             scoreTextPlayer2.text = "P2: " + scorePlayer2.ToString() + " Points";
         }
@@ -40,7 +40,7 @@ public class ScoreManager : MonoBehaviour
         if (name.Equals("Player CelluloAgent_1")) {
             scorePlayer1 -= 1;
             scoreTextPlayer1.text = "P1: " + scorePlayer1.ToString() + " Points";
-        } else if (name.Equals("Player CelluloAgent_2")) {
+        } else /*if (name.Equals("Player CelluloAgent_2"))*/ {
             scorePlayer2 -= 1;
             scoreTextPlayer2.text = "P2: " + scorePlayer2.ToString() + " Points";
         }
