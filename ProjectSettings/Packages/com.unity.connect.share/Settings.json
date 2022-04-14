@@ -6,7 +6,7 @@
             {
                 "type": "System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
                 "key": "buildOutputDirList",
-                "value": "{\"m_Value\":\"/Users/cyrus/CS213/WebGLBuilds;;;;;;;;;\"}"
+                "value": "{\"m_Value\":\"/Users/cyrus/CS213/WebGLBuilds/Build1;/Users/cyrus/CS213/WebGLBuilds;;;;;;;;\"}"
             },
             {
                 "type": "System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
