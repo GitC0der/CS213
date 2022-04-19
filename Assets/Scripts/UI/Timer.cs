@@ -8,7 +8,7 @@ public class Timer : MonoBehaviour
 {
     private float initTimerValue;
     private Text timerText;
-    public float maxSeconds = 30;
+    public float maxTime = 30;
     public GameObject gameOverMenu;
     public GameManager gameManager;
 
@@ -36,9 +36,15 @@ public class Timer : MonoBehaviour
 
         timerText.text = minutesText + ":" + secondsText;
         
-        if (t >= maxSeconds) {
+        if (t >= maxTime) {
             gameManager.EndGame();
             gameOverMenu.SetActive(true);
         }
+    }
+
+    public void setTime(float max)
+    {
+        maxTime = max;
+        Debug.Log("Set game duration to " + maxTime);
     }
 }
