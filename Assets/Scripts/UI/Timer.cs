@@ -8,7 +8,7 @@ public class Timer : MonoBehaviour
 {
     private float initTimerValue;
     private Text timerText;
-    public float maxTime = 30;
+    public float maxTime = 120;
     public GameObject gameOverMenu;
     public GameManager gameManager;
 
