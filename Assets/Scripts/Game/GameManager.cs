@@ -34,6 +34,13 @@ public class GameManager
             return m_Players;
         }
     }
+
+    public void EndGame()
+    {
+        Cursor.visible = true;
+        Time.timeScale = 0;
+        Debug.Log("Game Over");
+    }
 }
 
 public class Players : MonoBehaviour {

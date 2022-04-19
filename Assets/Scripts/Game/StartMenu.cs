@@ -35,6 +35,6 @@ public class StartMenu : MonoBehaviour
         startMenu.SetActive(false);
         Cursor.visible = false;
         gameStarted = true;
-        Time.timeScale = 1;   
+        Time.timeScale = 1;
     }
 }
