@@ -8,8 +8,8 @@ public class Timer : MonoBehaviour
 {
     private float initTimerValue;
     private Text timerText;
-    public Slider slider;
     public float maxSeconds = 30;
+    public GameObject gameOverMenu;
     public GameManager gameManager;
 
     public void Awake() {
@@ -19,6 +19,7 @@ public class Timer : MonoBehaviour
     // Start is called before the first frame update
     public void Start() {
         gameManager = GameManager.Instance;
+        gameOverMenu.SetActive(false);
         timerText = GetComponent<Text>();
         timerText.text = string.Format("{0:00}:{1:00}", 0, 0);
     }
@@ -35,7 +36,9 @@ public class Timer : MonoBehaviour
 
         timerText.text = minutesText + ":" + secondsText;
         
-        Debug.Log("t: " + t + maxSeconds + "maxSeconds: ");
-        if (t >= maxSeconds) gameManager.EndGame();
+        if (t >= maxSeconds) {
+            gameManager.EndGame();
+            gameOverMenu.SetActive(true);
+        }
     }
 }
