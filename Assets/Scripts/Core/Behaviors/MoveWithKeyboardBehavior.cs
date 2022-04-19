@@ -14,7 +14,6 @@ public class MoveWithKeyboardBehavior : AgentBehaviour
     public override Steering GetSteering()
     {
         Steering steering = new Steering();
-        //implement your code here (to be verified!)
         float horizontal = Input.GetAxis("Horizontal" + inputKeyboard.ToString());
         float vertical = Input.GetAxis("Vertical" + inputKeyboard.ToString());
 
@@ -24,4 +23,8 @@ public class MoveWithKeyboardBehavior : AgentBehaviour
         return steering;
     }
 
+    public void ChangeControls(int idx)
+    {
+        inputKeyboard = (InputKeyboard) idx;
+    }
 }
