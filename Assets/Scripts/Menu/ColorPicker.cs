@@ -5,7 +5,6 @@ using UnityEngine;
 public class ColorPicker : AgentBehaviour
 {
     public int PlayerIdx;
-    [SerializeField]
     GameObject Player;
 
     // Start is called before the first frame update
@@ -22,26 +21,26 @@ public class ColorPicker : AgentBehaviour
 
     void Initialise()
     {
-        Player = GameObject.FindGameObjectWithTag("Player");
-        Players players = GameManager.Instance.Players;
-        Players.Player player1 = players.players[PlayerIdx];
+        // Player = GameObject.FindGameObjectWithTag("Player");
+        // Players players = GameManager.Instance.Players;
+        // Players.Player player1 = players.players[PlayerIdx];
     }
 
     public void BlueColor()
     {
-        Initialise();
+        // Initialise();
         agent.SetVisualEffect(VisualEffect.VisualEffectConstAll, Color.blue, 0);
     }
 
     public void GreenColor()
     {
-        Initialise();
+        // Initialise();
         agent.SetVisualEffect(VisualEffect.VisualEffectConstAll, Color.green, 0);
     }
 
     public void YellowColor()
     {
-        Initialise();
+        // Initialise();
         agent.SetVisualEffect(VisualEffect.VisualEffectConstAll, Color.yellow, 0);
     }
 }
