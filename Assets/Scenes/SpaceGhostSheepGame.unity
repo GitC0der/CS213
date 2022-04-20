@@ -8610,6 +8610,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weight: 1
+  PlayerIdx: 0
 --- !u!1001 &1882945892
 PrefabInstance:
   m_ObjectHideFlags: 0
