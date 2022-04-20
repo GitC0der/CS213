@@ -3815,6 +3815,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d89bd099c989642b98e473cf3fabf716, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &656393655
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 656393647}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 141d3ac5066a94dcdb768e6f4ca325da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &659089805
 GameObject:
   m_ObjectHideFlags: 0
@@ -5445,7 +5457,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weight: 1
   isSheep: 0
-  sheepColor: {r: 0, g: 1, b: 0, a: 1}
+  sheepColor: {r: 0.5019608, g: 0.5019608, b: 0.5019608, a: 1}
   ghostColor: {r: 1, g: 0, b: 0, a: 1}
   wolf_audioClip: {fileID: 8300000, guid: 38694c16ea2afe33da8620b6cad520af, type: 3}
   sheep_audioClip: {fileID: 8300000, guid: bf47bb3b77c6747bca1497d7c815f84b, type: 3}
@@ -8610,6 +8622,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d89bd099c989642b98e473cf3fabf716, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1708979273
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1708979269}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c6b92620db8f4aa0bff1bcc35f1a6c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!4 &1722187815 stripped

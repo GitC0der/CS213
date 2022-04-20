@@ -7,7 +7,7 @@ public class GhostSheepBehavior : AgentBehaviour
     [SerializeField]
     private bool isSheep = true;
     [SerializeField]
-    private Color sheepColor = Color.green;
+    private Color sheepColor = Color.grey;
     [SerializeField]
     private Color ghostColor = Color.red;
 
