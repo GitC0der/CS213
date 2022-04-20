@@ -5,6 +5,7 @@ using UnityEngine;
 public class ColorPicker : AgentBehaviour
 {
     public int PlayerIdx;
+    [SerializeField]
     GameObject Player;
 
     // Start is called before the first frame update

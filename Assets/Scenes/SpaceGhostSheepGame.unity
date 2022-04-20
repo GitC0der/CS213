@@ -5341,7 +5341,7 @@ MonoBehaviour:
   sheepColor: {r: 0, g: 1, b: 0, a: 1}
   ghostColor: {r: 1, g: 0, b: 0, a: 1}
   wolf_audioClip: {fileID: 8300000, guid: 38694c16ea2afe33da8620b6cad520af, type: 3}
-  sheep_audioClip: {fileID: 8300000, guid: 606621ca451e37dc7814bb28809e9de5, type: 3}
+  sheep_audioClip: {fileID: 8300000, guid: bf47bb3b77c6747bca1497d7c815f84b, type: 3}
 --- !u!82 &997652533
 AudioSource:
   m_ObjectHideFlags: 0
@@ -8611,6 +8611,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weight: 1
   PlayerIdx: 0
+  Player: {fileID: 0}
 --- !u!1001 &1882945892
 PrefabInstance:
   m_ObjectHideFlags: 0
