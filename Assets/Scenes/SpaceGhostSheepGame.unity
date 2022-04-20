@@ -1281,7 +1281,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 207691553}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1708979272}
+        m_TargetAssemblyTypeName: ColorPicker, Assembly-CSharp
+        m_MethodName: GreenColor
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &207691553
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1938,7 +1950,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 303252887}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1708979272}
+        m_TargetAssemblyTypeName: ColorPicker, Assembly-CSharp
+        m_MethodName: YellowColor
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &303252887
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2103,7 +2127,6 @@ RectTransform:
   m_Children:
   - {fileID: 52161268}
   - {fileID: 147615114}
-  - {fileID: 1795001088}
   - {fileID: 659089806}
   - {fileID: 739979351}
   m_Father: {fileID: 578476678}
@@ -3708,6 +3731,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 224e3a0522a6a4001b0d90728302bf49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &656393654
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 656393647}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d89bd099c989642b98e473cf3fabf716, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &659089805
 GameObject:
   m_ObjectHideFlags: 0
@@ -3746,7 +3781,7 @@ RectTransform:
   - {fileID: 259385639}
   - {fileID: 1467554889}
   m_Father: {fileID: 373033880}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -3959,7 +3994,7 @@ RectTransform:
   - {fileID: 1408974247}
   - {fileID: 504132623}
   m_Father: {fileID: 373033880}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -5628,7 +5663,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1067532428}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1708979272}
+        m_TargetAssemblyTypeName: ColorPicker, Assembly-CSharp
+        m_MethodName: BlueColor
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1067532428
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6127,7 +6174,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1125942525}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 656393654}
+        m_TargetAssemblyTypeName: ColorPicker, Assembly-CSharp
+        m_MethodName: GreenColor
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1125942525
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6660,7 +6719,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1795001089}
+      - m_Target: {fileID: 656393654}
         m_TargetAssemblyTypeName: ColorPicker, Assembly-CSharp
         m_MethodName: BlueColor
         m_Mode: 1
@@ -8361,6 +8420,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weight: 1
   inputKeyboard: 0
+--- !u!114 &1708979272
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1708979269}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d89bd099c989642b98e473cf3fabf716, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1722187815 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5949435046076350016, guid: dbe836a054f552f40920e331a2a2b469, type: 3}
@@ -8561,57 +8632,6 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: daf70e5a54725e84ea7bd763e9ddc779, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dbe836a054f552f40920e331a2a2b469, type: 3}
---- !u!1 &1795001087
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1795001088}
-  - component: {fileID: 1795001089}
-  m_Layer: 5
-  m_Name: Colour Picker
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1795001088
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1795001087}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 373033880}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1795001089
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1795001087}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d89bd099c989642b98e473cf3fabf716, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  weight: 1
-  PlayerIdx: 0
-  Player: {fileID: 0}
 --- !u!1001 &1882945892
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9397,7 +9417,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2076774089}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 656393654}
+        m_TargetAssemblyTypeName: ColorPicker, Assembly-CSharp
+        m_MethodName: YellowColor
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2076774089
 MonoBehaviour:
   m_ObjectHideFlags: 0
