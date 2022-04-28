@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.12500554, g: 0.09922921, b: 0.13229167, a: 1}
+  m_IndirectSpecularColor: {r: 0.12499481, g: 0.09921264, b: 0.13229212, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3963,6 +3963,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 141d3ac5066a94dcdb768e6f4ca325da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &656393656
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 656393647}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c33ed17a832b9473087f25805316f958, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &659089805
 GameObject:
   m_ObjectHideFlags: 0
@@ -5244,9 +5256,9 @@ RectTransform:
   m_Father: {fileID: 147615114}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -4, y: -83}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: -4, y: -138}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &889561749
@@ -5879,7 +5891,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 1067532428}
   m_OnClick:
     m_PersistentCalls:
@@ -8858,6 +8870,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c6b92620db8f4aa0bff1bcc35f1a6c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1708979274
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1708979269}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c33ed17a832b9473087f25805316f958, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1722187815 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5949435046076350016, guid: dbe836a054f552f40920e331a2a2b469, type: 3}
@@ -9839,7 +9863,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 2076774089}
   m_OnClick:
     m_PersistentCalls:
