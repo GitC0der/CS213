@@ -23,6 +23,11 @@ public class GhostSheepBehavior : AgentBehaviour
     float minStateDuration = 2f;
     float maxStateDuration = 6f;
 
+    [SerializeField]
+    private RealPlayerCellulo Player1;
+    [SerializeField]
+    private RealPlayerCellulo Player2;
+
     public new void Awake()
     {
         base.Awake();
@@ -38,6 +43,18 @@ public class GhostSheepBehavior : AgentBehaviour
 
         audioSource = (gameObject.GetComponent<AudioSource>() != null) ? gameObject.GetComponent<AudioSource>() : gameObject.AddComponent<AudioSource>();
         audioSource.playOnAwake = false;
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        if (isSheep) {
+            Player1.AIisSheep();
+            Player2.AIisSheep();
+        } else {
+            Player1.AIisGhost();
+            Player2.AIisGhost();
+        }
     }
 
     public override Steering GetSteering()

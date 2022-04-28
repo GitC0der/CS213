@@ -19,13 +19,13 @@ public class RealPlayerCellulo : MonoBehaviour
         else AIisGhost();
     }
 
-    void AIisSheep()
+    public void AIisSheep()
     {
         isSheep = true;
         agent.SetCasualBackdriveAssistEnabled(true);
     }
 
-    void AIisGhost()
+    public void AIisGhost()
     {
         isSheep = false;
         agent.MoveOnStone();
