@@ -22,6 +22,7 @@ public class RealPlayerCellulo : MonoBehaviour
     public void AIisSheep()
     {
         isSheep = true;
+        agent.ClearHapticFeedback();
         agent.SetCasualBackdriveAssistEnabled(true);
     }
 
@@ -29,6 +30,5 @@ public class RealPlayerCellulo : MonoBehaviour
     {
         isSheep = false;
         agent.MoveOnStone();
-        agent.SetCasualBackdriveAssistEnabled(false);
     }
 }
