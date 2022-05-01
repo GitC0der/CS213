@@ -8,6 +8,7 @@ TagManager:
   - LedCycle
   - Vibrate
   - Sheep
+  - Gem
   layers:
   - Default
   - TransparentFX

@@ -138,15 +138,18 @@ public class Players : MonoBehaviour {
             _name += name;
         }
 
-        
-    }
-        public Player Get(int index = 0) {
-            if (_players.Count - 1 < index)
-                return new Player();
-            return _players[index];
+        public Player GetOtherPlayer() {
+            return (this == GameManager.Instance.Players.Get(0)) ? GameManager.Instance.Players.Get(1): this;
         }
+    }
     
+    public Player Get(int index = 0) {
+        if (_players.Count - 1 < index)
+            return new Player();
+        return _players[index];
+    }
 
+    
     public int AddPlayer(GameObject player)
     {
         _players.Add(new Player(player));
