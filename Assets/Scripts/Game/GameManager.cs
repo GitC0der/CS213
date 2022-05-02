@@ -63,7 +63,7 @@ public class Players : MonoBehaviour {
     {
         
     }
-
+    
     public class Player {
 
         private string _name = "Player ";
@@ -87,6 +87,8 @@ public class Players : MonoBehaviour {
                 _gameObject = value;
             }
         }
+
+        private Color color;
 
         private int _score;
         public int Score
@@ -139,7 +141,9 @@ public class Players : MonoBehaviour {
         }
 
         public Player GetOtherPlayer() {
-            return (this == GameManager.Instance.Players.Get(0)) ? GameManager.Instance.Players.Get(1): this;
+            return (this == GameManager.Instance.Players.Get(0)) ? 
+                GameManager.Instance.Players.Get(1): 
+                GameManager.Instance.Players.Get(0);
         }
     }
     

@@ -18,14 +18,15 @@ public class Gem : MonoBehaviour
     private float zMax = -5.40f;
     private float zMin = -16.41f;
     private Vector3 ringPosition = new Vector3(14.30f, 0.0f, -10.0f);
-    private float ringClearanceRadius = 4.0f;
-    private float celluloClearanceRadius = 3.0f;
+    private float ringClearanceRadius = 5.0f;
+    private float celluloClearanceRadius = 4.0f;
 
     /* ---- Programming Variables ---- **/
     private float nextSpawnTime = 0.0f;
     private float nextDespawnTime = 0.0f;
     private AudioSource audioSource;
-    private Collider collider; 
+    private Collider collider;
+    private bool isEnabled = false;
 
     // Start is called before the first frame update
     void Start()
@@ -106,23 +107,29 @@ public class Gem : MonoBehaviour
     }
 
     public void Despawn() {
-        Debug.Log("Gem disappeared");
+        if (isEnabled) Debug.Log("Gem disappeared");
         Disable();
     }
 
-    public void Grabbed(GameObject player) {
+    public void Grabbed(GameObject player)
+    {
+        Debug.Log("Gem grabbed");
         Disable();
         audioSource.clip = grabSound;
         audioSource.Play();
         player.GetComponent<RealPlayerCellulo>().GrabGem();
     }
 
-    public void Enable() {
+    public void Enable()
+    {
+        isEnabled = true;
         //GameObject.FindGameObjectWithTag("Gem").SetActive(true);
         collider.enabled = true;
     }
 
-    public void Disable() {
+    public void Disable()
+    {
+        isEnabled = false;
         //GameObject.FindGameObjectWithTag("Gem").SetActive(false);
         // Dirty solution that works better than the above
         transform.position = new Vector3(-9999, -9999, -9999);
