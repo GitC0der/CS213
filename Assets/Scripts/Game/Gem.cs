@@ -42,8 +42,9 @@ public class Gem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Debug.Log(string.Format("Time = {0} | despawn =  {1} | spawn = {2} | interval = {3}", Time.time, nextDespawnTime, nextSpawnTime, spawnInterval));
         if (Time.time > nextDespawnTime) {
-            Enable();
+            Despawn();
             nextDespawnTime += spawnInterval;
         }
         if (Time.time > nextSpawnTime) {
@@ -52,6 +53,7 @@ public class Gem : MonoBehaviour
         }
     }
 
+    /*
     public void OnCollisionEnter(Collision other)
     {
         if (other.gameObject.CompareTag("Ground"))
@@ -62,16 +64,29 @@ public class Gem : MonoBehaviour
             Grabbed(player.gameObject);
         }
     }
+    **/
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Ground"))
+            return;
+        Debug.Log("other.collider.transform.parent.gameObject: " + other.transform.parent.gameObject + "   other.collider.gameObject: " + other.gameObject);
+        if (other.transform.parent.gameObject.CompareTag("Player")) {
+            Players.Player player = GameManager.Instance.Players.GetClosestPlayer(other.transform); 
+            Grabbed(player.gameObject);
+        }
+    }
 
     public void Spawn() {
         Debug.Log("Gem has spawned");
         bool nearCellulo = false;
-        bool nearRing = false;
+        bool nearRing;
         Vector3 gemPosition;
-        List<Players.Player> players = GameManager.Instance.Players.players;
-        List<GameObject> cellulos = new List<GameObject>();
-        cellulos.Add(GameManager.Instance.Players.Get(0).gameObject);
-        cellulos.Add(GameManager.Instance.Players.Get(1).gameObject);
+        List<GameObject> cellulos = new List<GameObject>
+        {
+            GameManager.Instance.Players.Get(0).gameObject,
+            GameManager.Instance.Players.Get(1).gameObject
+        };
         GameObject ghostSheep = GameObject.FindGameObjectWithTag("Sheep");
         ghostSheep = (ghostSheep == null) ? GameObject.FindGameObjectWithTag("Ghost"): ghostSheep;
         cellulos.Add(ghostSheep);
@@ -84,10 +99,10 @@ public class Gem : MonoBehaviour
             }
         } while(nearCellulo || nearRing);
 
-        this.transform.parent.position = gemPosition;
+        Enable();
+        transform.position = gemPosition;
         audioSource.clip = spawnSound;
         audioSource.Play();
-        Disable();
     }
 
     public void Despawn() {
@@ -96,23 +111,26 @@ public class Gem : MonoBehaviour
     }
 
     public void Grabbed(GameObject player) {
+        Disable();
         audioSource.clip = grabSound;
         audioSource.Play();
         player.GetComponent<RealPlayerCellulo>().GrabGem();
     }
 
     public void Enable() {
-        GameObject.FindGameObjectWithTag("Gem").SetActive(true);
+        //GameObject.FindGameObjectWithTag("Gem").SetActive(true);
         collider.enabled = true;
     }
 
     public void Disable() {
-        GameObject.FindGameObjectWithTag("Gem").SetActive(false);
+        //GameObject.FindGameObjectWithTag("Gem").SetActive(false);
+        // Dirty solution that works better than the above
+        transform.position = new Vector3(-9999, -9999, -9999);
         collider.enabled = false;
     }
 
     public float GetTotalDuration() { return powerUpDuration; }
 
-    public int getPlayerHitMalus() { return hitMalus; }
+    public int GetPlayerHitMalus() { return hitMalus; }
     
 }

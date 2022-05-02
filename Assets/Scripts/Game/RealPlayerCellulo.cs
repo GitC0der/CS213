@@ -13,12 +13,14 @@ public class RealPlayerCellulo : MonoBehaviour
     private float gemTimeEnd = 0.0f;
     private AudioSource audioSource;
     private Gem gem;
+    private Color initialColor;
 
     // Start is called before the first frame update
     void Start()
     {
         agent = GetComponent<CelluloAgent>();
-        gem = GameObject.FindGameObjectWithTag("Gem").GetComponentInParent<Gem>();
+        //gem = GameObject.FindGameObjectWithTag("Gem").GetComponent<Gem>();
+        gem = FindObjectOfType(typeof(Gem)) as Gem;
         audioSource = (gameObject.GetComponent<AudioSource>() != null) ? gameObject.GetComponent<AudioSource>() : gameObject.AddComponent<AudioSource>();
         audioSource.playOnAwake = false;
     }
@@ -51,7 +53,7 @@ public class RealPlayerCellulo : MonoBehaviour
 
     private void Blink() {
         float timeRatio = 1 - ((gemTimeEnd - Time.time) / gem.GetTotalDuration());
-        float colorID = (Mathf.Pow(timeRatio*5, 2.2f) + 3*timeRatio) % 2;    // Function that decides which color to display when the cellulo is blinking
+        float colorID = (Mathf.Pow(timeRatio*5, 2.3f) + 2*timeRatio) % 2;    // Function that decides which color to display when the cellulo is blinking
         if (colorID > 1) {
             agent.SetVisualEffect(VisualEffect.VisualEffectConstAll, Color.red, 0);
         } else {
@@ -60,7 +62,8 @@ public class RealPlayerCellulo : MonoBehaviour
     }
 
     public void HitPlayer(Players.Player player) {
-        player.GetOtherPlayer().RemoveScore(gem.getPlayerHitMalus());
+        player.GetOtherPlayer().RemoveScore(gem.GetPlayerHitMalus());
+        player.AddScore(gem.GetPlayerHitMalus());
         audioSource.clip = hitSound;
         audioSource.Play();
         alreadyHit = true;
