@@ -53,8 +53,15 @@ public class RealPlayerCellulo : MonoBehaviour
 
     private void Blink() {
         float timeRatio = 1 - ((gemTimeEnd - Time.time) / gem.GetTotalDuration());
-        float colorID = (Mathf.Pow(timeRatio*5, 2.27f) + 10*timeRatio) % 2;    // Function that decides which color to display when the cellulo is blinking
-        currentColor = (colorID > 1) ? Color.red : Color.yellow;
+        
+		const float startSpeed = 15;    // Blinking speed of the lights in the beginning, >=0
+		const float endSpeed = 110f;   // Blinking speed of the lights in end, >=0
+		const float offSet = 2.27f;     // The higher the later the speed starts increasing, >=0
+		//float colorID = (Mathf.Pow(timeRatio*5, 2.27f) + 10*timeRatio) % 2;    // Function that decides which color to display when the cellulo is blinking
+		// Function of type f(x) = ax^k + bx that decides which color to display when the cellulo is blinking
+		float colorID = ((endSpeed - startSpeed)/offSet*Mathf.Pow(timeRatio, offSet) + startSpeed*timeRatio) % 2;    
+        
+		currentColor = (colorID > 1) ? Color.red : Color.yellow;
         agent.SetVisualEffect(VisualEffect.VisualEffectConstAll, currentColor, 0);
     }
 

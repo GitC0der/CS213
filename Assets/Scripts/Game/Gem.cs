@@ -27,6 +27,7 @@ public class Gem : MonoBehaviour
     private AudioSource audioSource;
     private Collider collider;
     private bool isEnabled = false;
+    private List<GameObject> cellulos;
 
     // Start is called before the first frame update
     void Start()
@@ -38,6 +39,16 @@ public class Gem : MonoBehaviour
 
         audioSource = (gameObject.GetComponent<AudioSource>() != null) ? gameObject.GetComponent<AudioSource>() : gameObject.AddComponent<AudioSource>();
         audioSource.playOnAwake = false;
+        
+        // Creates a list containing all Cellulos
+        cellulos = new List<GameObject>
+        {
+            GameManager.Instance.Players.Get(0).gameObject,
+            GameManager.Instance.Players.Get(1).gameObject
+        };
+        GameObject ghostSheep = GameObject.FindGameObjectWithTag("Sheep");
+        ghostSheep = (ghostSheep == null) ? GameObject.FindGameObjectWithTag("Ghost"): ghostSheep;
+        cellulos.Add(ghostSheep);
     }
 
     // Update is called once per frame
@@ -79,31 +90,26 @@ public class Gem : MonoBehaviour
     }
 
     public void Spawn() {
-        Debug.Log("Gem has spawned");
-        bool nearCellulo = false;
+        bool nearCellulo;
         bool nearRing;
         Vector3 gemPosition;
-        List<GameObject> cellulos = new List<GameObject>
+        do
         {
-            GameManager.Instance.Players.Get(0).gameObject,
-            GameManager.Instance.Players.Get(1).gameObject
-        };
-        GameObject ghostSheep = GameObject.FindGameObjectWithTag("Sheep");
-        ghostSheep = (ghostSheep == null) ? GameObject.FindGameObjectWithTag("Ghost"): ghostSheep;
-        cellulos.Add(ghostSheep);
-
-        do {
-            gemPosition = new Vector3(Random.Range(xMin, xMax), 0.0f, Random.Range(zMin, zMax));
+            gemPosition = new Vector3(Random.Range(xMin, xMax), 0.5f, Random.Range(zMin, zMax));
             nearRing = Vector3.Distance(gemPosition, ringPosition) < ringClearanceRadius;
+            nearCellulo = false;
             foreach (GameObject cellulo in cellulos) {
-                nearCellulo = nearCellulo || Vector3.Distance(gemPosition, cellulo.transform.parent.position) < celluloClearanceRadius;
+                nearCellulo = nearCellulo || Vector3.Distance(gemPosition, cellulo.transform.position) < celluloClearanceRadius;
             }
+
         } while(nearCellulo || nearRing);
 
         Enable();
         transform.position = gemPosition;
         audioSource.clip = spawnSound;
         audioSource.Play();
+        Debug.Log("Gem has spawned in" + transform.position);
+
     }
 
     public void Despawn() {
@@ -132,7 +138,7 @@ public class Gem : MonoBehaviour
         isEnabled = false;
         //GameObject.FindGameObjectWithTag("Gem").SetActive(false);
         // Dirty solution that works better than the above
-        transform.position = new Vector3(-9999, -9999, -9999);
+        transform.position = new Vector3(9999, 9999, 9999);
         collider.enabled = false;
     }
 
