@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public class RealPlayerCellulo : MonoBehaviour
 {
     public AudioClip hitSound;
 
+    //private GameObject cellulo;
     CelluloAgent agent;
     private bool isAISheep;
     private bool hasGem = false;
@@ -18,6 +20,7 @@ public class RealPlayerCellulo : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //cellulo = gameObject;
         agent = GetComponent<CelluloAgent>();
         gem = FindObjectOfType(typeof(Gem)) as Gem;
         audioSource = (gameObject.GetComponent<AudioSource>() != null) ? gameObject.GetComponent<AudioSource>() : gameObject.AddComponent<AudioSource>();

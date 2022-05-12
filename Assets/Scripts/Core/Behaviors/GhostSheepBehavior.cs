@@ -24,9 +24,10 @@ public class GhostSheepBehavior : AgentBehaviour
     float maxStateDuration = 6f;
 
     [SerializeField]
-    private RealPlayerCellulo Player1;
+    //private RealPlayerCellulo Player1;         // How it should be
+    private MoveWithKeyboardBehavior Player1;
     [SerializeField]
-    private RealPlayerCellulo Player2;
+    private MoveWithKeyboardBehavior Player2;
 
     public new void Awake()
     {

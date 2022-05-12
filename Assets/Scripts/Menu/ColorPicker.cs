@@ -5,11 +5,11 @@ using UnityEngine;
 public class ColorPicker : MonoBehaviour
 {
     CelluloAgent agent;
-    private RealPlayerCellulo player;
+    private MoveWithKeyboardBehavior player;
     void Start()
     { 
         agent = GetComponent<CelluloAgent>();
-        player = GetComponent<RealPlayerCellulo>();
+        player = GetComponent<MoveWithKeyboardBehavior>();
     }
 
     public void BlueColor()

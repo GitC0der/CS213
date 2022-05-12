@@ -123,7 +123,7 @@ public class Gem : MonoBehaviour
         Disable();
         audioSource.clip = grabSound;
         audioSource.Play();
-        player.GetComponent<RealPlayerCellulo>().GrabGem();
+        player.GetComponent<MoveWithKeyboardBehavior>().GrabGem();
     }
 
     public void Enable()

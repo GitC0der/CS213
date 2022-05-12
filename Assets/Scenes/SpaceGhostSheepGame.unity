@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.12499481, g: 0.09921264, b: 0.13229212, a: 1}
+  m_IndirectSpecularColor: {r: 0.12500554, g: 0.09922921, b: 0.13229167, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3834,6 +3834,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weight: 1
   inputKeyboard: 1
+  hitSound: {fileID: 0}
 --- !u!114 &656393649
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3870,19 +3871,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 141d3ac5066a94dcdb768e6f4ca325da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &656393656
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 656393647}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c33ed17a832b9473087f25805316f958, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hitSound: {fileID: 0}
 --- !u!1 &659089805
 GameObject:
   m_ObjectHideFlags: 0
@@ -5525,8 +5513,8 @@ MonoBehaviour:
   ghostColor: {r: 1, g: 0, b: 0, a: 1}
   wolf_audioClip: {fileID: 8300000, guid: 38694c16ea2afe33da8620b6cad520af, type: 3}
   sheep_audioClip: {fileID: 8300000, guid: bf47bb3b77c6747bca1497d7c815f84b, type: 3}
-  Player1: {fileID: 656393656}
-  Player2: {fileID: 1708979274}
+  Player1: {fileID: 656393648}
+  Player2: {fileID: 1708979271}
 --- !u!82 &997652533
 AudioSource:
   m_ObjectHideFlags: 0
@@ -8763,6 +8751,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weight: 1
   inputKeyboard: 0
+  hitSound: {fileID: 0}
 --- !u!114 &1708979272
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8787,19 +8776,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c6b92620db8f4aa0bff1bcc35f1a6c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1708979274
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1708979269}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c33ed17a832b9473087f25805316f958, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hitSound: {fileID: 8300000, guid: 4934d580c24ae8547a09a83aedd8785d, type: 3}
 --- !u!4 &1722187815 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5949435046076350016, guid: dbe836a054f552f40920e331a2a2b469, type: 3}
